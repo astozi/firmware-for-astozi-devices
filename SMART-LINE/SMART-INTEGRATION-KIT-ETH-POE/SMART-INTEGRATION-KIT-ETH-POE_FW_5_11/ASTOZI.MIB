@@ -1,0 +1,337 @@
+-- ASTOZI-MIB 1.2
+-- History:
+-- 1.2		27.03.2017 - Modified. Add new features for firmware version above 4.60  
+-- 1.1		22.12.2015 - Modified
+-- 1.01		01.12.2015 - Created
+
+ASTOZI-MIB DEFINITIONS ::= BEGIN
+
+IMPORTS
+	enterprises
+		FROM RFC1155-SMI
+	OBJECT-TYPE
+		FROM RFC-1212;
+
+astozi						OBJECT IDENTIFIER ::= { enterprises 41798 }
+SmartLine					OBJECT IDENTIFIER ::= { astozi 1 }
+SmartSensorPoeOperations	OBJECT IDENTIFIER ::= { SmartLine 1 }
+SmartSensorPoeIndicators	OBJECT IDENTIFIER ::= { SmartLine 2 }
+SmartSensorPoeSensors		OBJECT IDENTIFIER ::= { SmartLine 3 }
+sensorOne					OBJECT IDENTIFIER ::= {SmartSensorPoeSensors 21}
+sensorTwo					OBJECT IDENTIFIER ::= {SmartSensorPoeSensors 22}
+sensorThree					OBJECT IDENTIFIER ::= {SmartSensorPoeSensors 23}
+sensorFour					OBJECT IDENTIFIER ::= {SmartSensorPoeSensors 24}
+
+sensorOneEntry  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     not-accessible
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor ID."
+	::= { sensorOne 1 } 
+
+sensorOneTimeStamp  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..25))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor last measurement time"
+	::= { sensorOne 2 }
+
+sensorOneName  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor name."
+	::= { sensorOne 3 }
+
+sensorOneUnit  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor unit type"
+	::= { sensorOne 4 }
+
+sensorOneValueString  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor value."
+	::= { sensorOne 5 }
+
+sensorOneAlertState  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The value representation of sensor alert state. (0) In normal state (1) In alarm state"
+	::= { sensorOne 6 }
+
+sensorOneValue  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplied by sensorOneMultiplier"
+	::= { sensorOne 7 }
+
+sensorOneValueMultiplier  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplier"
+	::= { sensorOne 8 }
+
+sensorTwoEntry  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     not-accessible
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor ID."
+	::= { sensorTwo 1 } 
+
+sensorTwoTimeStamp  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..30))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor last measurement time"
+	::= { sensorTwo 2 }
+
+sensorTwoName  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor name."
+	::= { sensorTwo 3 }
+
+sensorTwoUnit  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor unit type"
+	::= { sensorTwo 4 }
+
+sensorTwoValueString  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor value."
+	::= { sensorTwo 5 }
+
+sensorTwoAlertState  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The value representation of sensor alert state. (0) In normal state (1) In alarm state"
+	::= { sensorTwo 6 }
+
+sensorTwoValue  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplied by sensorOneMultiplier"
+	::= { sensorTwo 7 }
+
+sensorTwoValueMultiplier  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplier"
+	::= { sensorTwo 8 }
+
+sensorThreeEntry  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     not-accessible
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor ID."
+	::= { sensorThree 1 } 
+
+sensorThreeTimeStamp  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..30))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor last measurement time"
+	::= { sensorThree 2 }
+
+sensorThreeName  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor name."
+	::= { sensorThree 3 }
+
+sensorThreeUnit  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor unit type"
+	::= { sensorThree 4 }
+
+sensorThreeValueString  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor value."
+	::= { sensorThree 5 }
+
+sensorThreeAlertState  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The value representation of sensor alert state. (0) In normal state (1) In alarm state"
+	::= { sensorThree 6 }
+
+sensorThreeValue  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplied by sensorOneMultiplier"
+	::= { sensorThree 7 }
+
+sensorThreeValueMultiplier  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplier"
+	::= { sensorThree 8 }
+
+sensorFourEntry  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     not-accessible
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor ID."
+	::= { sensorFour 1 } 
+
+sensorFourTimeStamp  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..30))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor last measurement time"
+	::= { sensorFour 2 }
+
+sensorFourName  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..50))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor name."
+	::= { sensorFour 3 }
+
+sensorFourUnit  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor unit type"
+	::= { sensorFour 4 }
+
+sensorFourValueString  OBJECT-TYPE
+	SYNTAX     OCTET STRING (SIZE (0..20))
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The string representation of sensor value."
+	::= { sensorFour 5 }
+
+sensorFourAlertState  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The value representation of sensor alert state. (0) In normal state (1) In alarm state"
+	::= { sensorFour 6 }
+
+sensorFourValue  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplied by sensorOneMultiplier"
+	::= { sensorFour 7 }
+
+sensorFourValueMultiplier  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-only
+	STATUS     mandatory
+	DESCRIPTION 
+		"The sensor value multiplier"
+	::= { sensorFour 8 }
+
+manualMode  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The manual mode status."
+	::= { SmartSensorPoeIndicators 1 } 
+
+autoSaveMode  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The autosave mode status."
+	::= { SmartSensorPoeIndicators 2 }
+
+buzzerStatus  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The buzzer status."
+	::= { SmartSensorPoeIndicators 3 }
+
+redLedStatus  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The red led status."
+	::= { SmartSensorPoeIndicators 4 }
+
+greenLedStatus  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The red green status."
+	::= { SmartSensorPoeIndicators 5 }
+
+blueLedStatus  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The red blue status."
+	::= { SmartSensorPoeIndicators 6 }
+
+operationID  OBJECT-TYPE
+	SYNTAX     INTEGER
+	ACCESS     read-write
+	STATUS     mandatory
+	DESCRIPTION 
+		"The identifier of operation for device."
+	::= { SmartSensorPoeOperations 1 }
+
+END
